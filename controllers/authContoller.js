@@ -3,6 +3,7 @@ const CryptoJS = require("crypto-js");
 const jwt = require('jsonwebtoken');
 
 module.exports = {
+
     //Create User Account
     createUser: async (req, res) => {
         const newUser = new User(
@@ -22,8 +23,8 @@ module.exports = {
     },
 
     //Login User
-
     loginUser: async (req, res) => {
+
         try {
             const user = await User.findOne({email: req.body.email});
 
@@ -35,15 +36,14 @@ module.exports = {
 
             passwordString !== req.body.password && res.status(401).json("Incorrect Password");
 
-            const {password, __v,createdAt, ...userDetails} = user._doc;
+            const {password, __v,createdAt,updatedAt, ...userDetails} = user._doc;
 
-            const token = jwt.sign({id: user._id, isAdmin: user.isAdmin, name: user.username, email: user.email, isAgent: user.isAgent}, process.env.JWT_SECRET);
+            const userToken = jwt.sign({id: user._id, isAdmin: user.isAdmin, name: user.username, email: user.email, isAgent: user.isAgent}, process.env.JWT_SECRET);
 
-            res.status(200).json({token, userDetails});
+            res.status(200).json({userToken, userDetails});
 
         } catch (error) {
             res.status(500);
-            
         }
     },
 }

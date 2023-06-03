@@ -7,14 +7,14 @@ const {verifyAndAuthorize, verifyToken, verifyAdmin} = require("../middleware/ve
 router.get("/", verifyAdmin, userController.getAllUsers);
 
 // GET USER
-router.get("/:id", verifyAndAuthorize, userController.getUser);
+router.get("/", verifyAndAuthorize, userController.getUser);
 
 // UPDATE USER
-router.put("/:id", verifyAndAuthorize, userController.updateUser);
+router.put("/", verifyAndAuthorize, userController.updateUser);
 
 
 // DELETE USER 
-router.delete("/:id", verifyAndAuthorize, userController.deleteUser);
+router.delete("/", verifyAndAuthorize, userController.deleteUser);
 
 
 module.exports = router

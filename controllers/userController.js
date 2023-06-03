@@ -16,7 +16,7 @@ module.exports = {
                 }, {new: true}
             );
 
-            const {password, __v, createdAt, ...others} = this.updateUser._doc;
+            const {password, __v, createdAt, ...others} = UpdateUser._doc;
 
             res.status(200).json({...others});
 

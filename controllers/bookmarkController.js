@@ -10,8 +10,9 @@ module.exports = {
             return res.status(404).json({error: "Job not Found"});
           }
           const newBookmark = new Bookmark({job: jobFound, userId: req.user.id});
+          console.log(newBookmark);
             const savedBookmark = await newBookmark.save();
-            const {__v, createdAt, updatedAt, ...newBookmarkInfo} = savedBookmark._doc;
+            const {__v, updatedAt, ...newBookmarkInfo} = savedBookmark._doc;
             res.status(201).json(newBookmarkInfo);
 
         } catch (error) {
@@ -31,7 +32,7 @@ module.exports = {
 
     getBookmarks: async (req, res) => {
         try {
-            const bookmarks = await Bookmark.find({userId: req.params.userId});
+            const bookmarks = await Bookmark.find({userId: req.user.id}).populate('job');
       
             res.status(200).json(bookmarks);
           } catch (error) {

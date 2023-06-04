@@ -41,13 +41,13 @@ module.exports = {
     }
   },
 
-  getAInternship: async (req, res) => {
+  getAnInternship: async (req, res) => {
     try {
-      const internship = await Internship.findById(req.params.id);
+      const Internship = await Internship.findById(req.params.id);
 
-      const { __v, createdAt, updatedAt, ...internshipData } = internship._doc;
+      const { __v, createdAt, updatedAt, ...InternshipData } = Internship._doc;
 
-      res.status(200).json(internshipData);
+      res.status(200).json(InternshipData);
     } catch (error) {
       res.status(500).json(error);
     }

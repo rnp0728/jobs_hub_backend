@@ -21,6 +21,9 @@ const InternshipsSchema = new mongoose.Schema(
         duration: {
             type: String, required: true,
         },
+        hiring: {
+            type: Boolean, default: true
+        },
         period: {
             type: String, required: true,
         },
@@ -33,6 +36,10 @@ const InternshipsSchema = new mongoose.Schema(
         imageUrl: {
             type: String,
             required: true,
+        },
+        skillsRequired: {
+            type: Array,
+            default: []
         },
         agentId: {
             type: mongoose.Schema.Types.ObjectId,ref: "User", required: true,

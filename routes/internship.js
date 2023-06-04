@@ -12,7 +12,7 @@ router.put("/:id", verifyAdmin, internshipController.updateInternship);
 router.delete("/:id", verifyAdmin, internshipController.deleteInternship);
 
 // GET A SINGLE Internship
-router.get("/:id", internshipController.getAInternship);
+router.get("/:id", internshipController.getAnInternship);
 
 // GET ALL InternshipS
 router.get("/", internshipController.getAllInternships);

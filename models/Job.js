@@ -30,6 +30,13 @@ const JobsSchema = new mongoose.Schema(
         requirements: {
             type: Array, required: true,
         },
+        responsibilities: {
+            type: Array,
+        },
+        skillsRequired: {
+            type: Array,
+            default: []
+        },
         imageUrl: {
             type: String,
             required: true,

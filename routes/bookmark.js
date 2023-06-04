@@ -4,7 +4,7 @@ const {verifyAndAuthorize, verifyToken, verifyAdmin} = require("../middleware/ve
 
 
 // CREATE BOOKMARKS
-router.post("/", verifyAndAuthorize,bookmarkController.createBookmark);
+router.post("/", verifyToken,bookmarkController.createBookmark);
 
 
 // DELETE BOOKMARKS

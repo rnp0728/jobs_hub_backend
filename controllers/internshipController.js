@@ -43,9 +43,9 @@ module.exports = {
 
   getAnInternship: async (req, res) => {
     try {
-      const Internship = await Internship.findById(req.params.id);
+      const internship = await Internship.findById(req.params.id);
 
-      const { __v, createdAt, updatedAt, ...InternshipData } = Internship._doc;
+      const { __v, createdAt, updatedAt, ...InternshipData } = internship._doc;
 
       res.status(200).json(InternshipData);
     } catch (error) {

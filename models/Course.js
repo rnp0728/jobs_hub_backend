@@ -6,29 +6,27 @@ const CoursesSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        description: {
+        instructor: {
             type: String,
             required: true,
         },
         rating: {
-            type: double, required: true,
+            type: Number, required: true,
         },
-        instructor: {
+        price: {
+            type: Number, required: true,
+        },
+        availableIn: {
             type: String, required: true,
-        },
-        language: {
-            type: String, required: true,
-        },
-        instructorShortDesc: {
-            type: String, required: true,
-        },
-        instructorLongDesc: {
-            type: Array, required: true,
         },
         imageUrl: {
             type: String,
             required: true,
         },
+        webAddress: {
+            type: String,
+            required: true
+        }
         
     }, {timestamps: true}
 );

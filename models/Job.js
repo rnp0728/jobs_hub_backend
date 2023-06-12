@@ -12,6 +12,9 @@ const JobsSchema = new mongoose.Schema(
         company: {
             type: String, required: true,
         },
+        email: {
+            type: String, required: true,
+        },
         description: {
             type: String, required: true,
         },
@@ -30,12 +33,9 @@ const JobsSchema = new mongoose.Schema(
         requirements: {
             type: Array, required: true,
         },
-        responsibilities: {
-            type: Array,
-        },
         skillsRequired: {
             type: Array,
-            default: []
+            required: true
         },
         imageUrl: {
             type: String,

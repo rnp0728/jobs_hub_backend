@@ -25,6 +25,16 @@ module.exports = {
         }
     },
 
+    updatePassword: async (req, res) => {
+        try {
+            const savedUser = await User.findByIdAndUpdate(req.user.id, {'password': CryptoJS.AES.encrypt(req.body.password, process.env.SECRET).toString()});
+
+            res.status(200).json(savedUser);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+
     deleteUser: async (req, res) => {
         try {
             

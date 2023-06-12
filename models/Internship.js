@@ -15,6 +15,9 @@ const InternshipsSchema = new mongoose.Schema(
         description: {
             type: String, required: true,
         },
+        email: {
+            type: String, required: true,
+        },
         stipend: {
             type: String, required: true,
         },
@@ -39,7 +42,7 @@ const InternshipsSchema = new mongoose.Schema(
         },
         skillsRequired: {
             type: Array,
-            default: []
+            required: true
         },
         agentId: {
             type: mongoose.Schema.Types.ObjectId,ref: "User", required: true,

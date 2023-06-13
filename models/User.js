@@ -23,8 +23,11 @@ const UserSchema = new mongoose.Schema(
         },
         isAdmin: {type: Boolean, default: false},
         isAgent: {type: Boolean, default: false},
+        userType: {
+            type: String, default: "user"
+        },
         skills:{
-            type: Array, default: false
+            type: Array, default: []
         },
         profile: {
             type: String,

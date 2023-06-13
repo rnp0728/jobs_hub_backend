@@ -28,7 +28,7 @@ const InternshipsSchema = new mongoose.Schema(
             type: Boolean, default: true
         },
         period: {
-            type: String, required: true,
+            type: String,
         },
         contract: {
             type: String, required: true,

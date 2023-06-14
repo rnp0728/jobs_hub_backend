@@ -67,6 +67,26 @@ module.exports = {
         } catch (error) {
             res.status(500).jason(error);
         }
-    }
+    },
+
+    searchUsers: async (req, res) => {
+        try {
+          const searchedUsers = await User.aggregate([{
+            $search: {
+              index: "users",
+              text: {
+                query: req.params.key,
+                path: {
+                  wildcard: "*",
+                },
+              },
+            },
+          }]);
+          console.log(searchedUsers);
+          res.status(200).json(searchedUsers);
+        } catch (error) {
+          res.status(500).json(error);
+        }
+      },
 
 }

@@ -19,5 +19,8 @@ router.delete("/", verifyToken, userController.deleteUser);
 // GET ALL USERS
 router.get("/all-users", verifyAdmin, userController.getAllUsers);
 
+// Search Users
+router.get("/search/:key", verifyAdmin, userController.searchUsers);
+
 
 module.exports = router

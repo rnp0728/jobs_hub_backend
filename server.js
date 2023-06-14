@@ -9,6 +9,7 @@ const jobRoute = require("./routes/job");
 const internshipRoute = require("./routes/internship");
 const bookmarkRoute = require("./routes/bookmark");
 const courseRoute = require("./routes/course");
+const applicantsRoute = require("./routes/applicant");
 
 dotenv.config();
 // process.env.VARIABLE_NAME
@@ -29,6 +30,7 @@ app.use("/api/jobs", jobRoute);
 app.use("/api/internships", internshipRoute);
 app.use("/api/bookmarks", bookmarkRoute);
 app.use("/api/courses", courseRoute);
+app.use("/api/applicants", applicantsRoute);
 
 
 

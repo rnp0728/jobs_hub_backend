@@ -63,6 +63,16 @@ module.exports = {
     }
   },
 
+  getInternshipsByAgent: async (req, res) => {
+    try {
+      const internships = await Internship.find({"agentId":req.user.id});
+
+      res.status(200).json(internships);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   searchInternships: async (req, res) => {
     try {
       const searchedInternships = await Internship.aggregate([{

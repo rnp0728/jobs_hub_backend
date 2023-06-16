@@ -26,8 +26,18 @@ module.exports = {
     },
 
     updatePassword: async (req, res) => {
+        const user = await User.findById(req.user.id);
+
+        !user && res.status(401).json("User not Found");
+
+        var existingPassword = CryptoJS.AES.decrypt(user.password, process.env.SECRET).toString(CryptoJS.enc.Utf8);
+        var password = req.body.password;
+        if(password !== existingPassword){
+            return res.status(401).json('Currrent Password didn\'t match with Your password');
+        }
+        console.log('Success');
         try {
-            const savedUser = await User.findByIdAndUpdate(req.user.id, {'password': CryptoJS.AES.encrypt(req.body.password, process.env.SECRET).toString()});
+            const savedUser = await User.findByIdAndUpdate(req.user.id, {'password': CryptoJS.AES.encrypt(req.body.newPassword, process.env.SECRET).toString()});
 
             res.status(200).json(savedUser);
         } catch (error) {

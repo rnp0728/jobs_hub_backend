@@ -11,7 +11,7 @@ router.get("/", verifyToken, userController.getUser);
 router.put("/", verifyToken, userController.updateUser);
 
 // UPDATE Password
-router.put("/", verifyToken, userController.updatePassword);
+router.put("/update-password", verifyToken, userController.updatePassword);
 
 // DELETE USER 
 router.delete("/", verifyToken, userController.deleteUser);

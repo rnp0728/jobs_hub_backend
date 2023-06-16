@@ -18,7 +18,7 @@ router.get("/:id", jobController.getAJob);
 router.get("/", jobController.getAllJobs);
 
 // GET JOBS BY AGENT
-router.get("/agent", verifyAgent, jobController.getJobsByAgent);
+router.get("/agent-call/:id", verifyAgent, jobController.getJobsByAgent);
 
 // SEARCH JOBS
 router.get("/search/:key", jobController.searchJobs);

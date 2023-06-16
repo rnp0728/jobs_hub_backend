@@ -65,7 +65,7 @@ module.exports = {
 
   getInternshipsByAgent: async (req, res) => {
     try {
-      const internships = await Internship.find({"agentId":req.user.id});
+      const internships = await Internship.find({"agentId":req.params.id});
 
       res.status(200).json(internships);
     } catch (error) {

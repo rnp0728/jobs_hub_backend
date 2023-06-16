@@ -18,7 +18,7 @@ router.get("/:id", internshipController.getAnInternship);
 router.get("/", internshipController.getAllInternships);
 
 // GET Internships by Agent
-router.get("/agent", verifyAgent, internshipController.getInternshipsByAgent);
+router.get("/agent-call/:id", verifyAgent, internshipController.getInternshipsByAgent);
 
 // SEARCH InternshipS
 router.get("/search/:key", internshipController.searchInternships);

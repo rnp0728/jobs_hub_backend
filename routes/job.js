@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const jobController = require("../controllers/jobController");
-const {verifyAndAuthorize, verifyToken, verifyAdmin, verifyAgent} = require("../middleware/verifyToken")
+const {verifyAdmin, verifyAgent, verifyAdminOrAgent} = require("../middleware/verifyToken")
 
 // POST A JOB
-router.post("/", verifyAdmin, jobController.createJob);
+router.post("/", verifyAdminOrAgent, jobController.createJob);
 
 // UPDATE JOB
-router.put("/:id", verifyAdmin, jobController.updateJob);
+router.put("/:id", verifyAdminOrAgent, jobController.updateJob);
 
 // DELETE JOB
-router.delete("/:id", verifyAdmin, jobController.deleteJob);
+router.delete("/:id", verifyAdminOrAgent, jobController.deleteJob);
 
 // GET A SINGLE JOB
 router.get("/:id", jobController.getAJob);

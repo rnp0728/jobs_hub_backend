@@ -45,6 +45,17 @@ const verifyAdmin = (req, res, next) => {
     });
 }
 
+//Verify an Admin
+const verifyAdminOrAgent = (req, res, next) => {
+    verifyToken(req, res, () => {
+        if(req.user.isAdmin || req.user.isAgent){
+            next();
+        }else{
+            res.status(403).json("You are restricted from performing this operation")
+        }
+    });
+}
+
 const verifyAgent = (req, res, next) => {
     verifyToken(req, res, () => {
         if(req.user.isAgent){
@@ -54,4 +65,4 @@ const verifyAgent = (req, res, next) => {
         }
     });
 }
-module.exports = {verifyToken, verifyAndAuthorize, verifyAdmin, verifyAgent};
+module.exports = {verifyToken, verifyAndAuthorize, verifyAdmin, verifyAgent, verifyAdminOrAgent};

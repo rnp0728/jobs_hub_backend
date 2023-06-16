@@ -11,6 +11,8 @@ module.exports = {
                 username: req.body.username,
                 email: req.body.email,
                 password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET).toString(),
+                isAgent: req.body.isAgent,
+                userType: req.body.userType
             }
         );
         try {

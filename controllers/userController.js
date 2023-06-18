@@ -56,6 +56,17 @@ module.exports = {
         }
     },
 
+    deleteUserByAdmin: async (req, res) => {
+        try {
+            
+            await User.findByIdAndDelete(req.params.id);
+            res.status(200).json("Account deleted Successfully");
+
+        } catch (error) {
+            res.status(500).jason(error);
+        }
+    },
+
     getUser: async (req, res) => {
         try {
             

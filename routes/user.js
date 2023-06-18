@@ -13,8 +13,11 @@ router.put("/", verifyToken, userController.updateUser);
 // UPDATE Password
 router.put("/update-password", verifyToken, userController.updatePassword);
 
-// DELETE USER 
+// DELETE ACCOUNT 
 router.delete("/", verifyToken, userController.deleteUser);
+
+// DELETE USER 
+router.delete("/remove-user/:id", verifyAdmin, userController.deleteUserByAdmin);
 
 // GET ALL USERS
 router.get("/all-users", verifyAdmin, userController.getAllUsers);

@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema(
         profile: {
             type: String,
             required: true,
-            default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlwgT43LjLiOsOKgrNiDwHJH4jupqqgMvw1OfGpe8UcUlZF-AQLt_L0HauH6XE4-ZlEyvkxFKQF5U&usqp=CAU&ec=48665699',
+            default: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1687067359~exp=1687067959~hmac=912a066b34b54d4c2ae3d5e1228e7406e5c623a39885bded5c7b34d76c5d979f',
         },
     },  {timestamps: true}
 );

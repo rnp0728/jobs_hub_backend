@@ -58,6 +58,10 @@ module.exports = {
 
     deleteUserByAdmin: async (req, res) => {
         try {
+
+            if(req.user.id === req.params.id && req.user.isAdmin){
+                return res.status(402).json('Unable to delete an Admin\'s Account!');
+            }
             
             await User.findByIdAndDelete(req.params.id);
             res.status(200).json("Account deleted Successfully");

@@ -6,6 +6,10 @@ const BookmarksSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "Job",
         },
+        internship: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Internship",
+        },
         userId: {
             type: String, required: true,
         },
